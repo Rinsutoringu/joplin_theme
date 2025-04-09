@@ -144,9 +144,15 @@ button > span.sc-eqUAAy.sc-fqkvVR.ljyEMI.cqJsbA.icon-sync {
     box-sizing: border-box !important; /* 确保内边距和边框不会影响宽度 */
 }
 
-/* 应用宽度和左右位置到指定元素 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-editor {
-    left: 265px !important; /* 紧贴左侧容器 */
+/* 顶部书签栏贴靠左右 */
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-plugin-view-joplin\.plugin\.note\.tabs-note\.tabs\.panel, 
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-plugin-view-joplin\.plugin\.note\.tabs-note\.tabs\.panel > div.sc-cwHptR.DnUmE {
+    width: calc(100vw - 265px - 230px) !important; /* 动态计算宽度 */
+}
+
+/* 主面板区域贴靠左右 */
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-editor, 
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-editor > div {
     width: calc(100vw - 265px - 230px) !important; /* 动态计算宽度 */
 }
 
@@ -158,4 +164,4 @@ button > span.sc-eqUAAy.sc-fqkvVR.ljyEMI.cqJsbA.icon-sync {
     display: flex !important; /* 保持 flex 布局 */
     flex-direction: row !important; /* 子元素水平排列 */
     box-sizing: border-box !important; /* 确保内边距和边框不会影响宽度 */
-}
+}`
