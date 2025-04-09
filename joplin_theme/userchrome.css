@@ -111,29 +111,14 @@ button > span.sc-eqUAAy.sc-fqkvVR.ljyEMI.cqJsbA.icon-sync {
 /* 左侧容器样式 */
 /* ========================= */
 #react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 {
-    width: 265px !important; /* 固定宽度 */
-    position: fixed !important; /* 固定在窗口中 */
-    left: 0; /* 紧贴窗口左侧 */
-    top: 0; /* 距离顶部对齐 */
-    height: 100vh; /* 高度占满整个窗口 */
-    z-index: 1000; /* 确保在其他元素之上 */
-    resize: none !important; /* 禁止拖动调整尺寸 */
+    flex: 0 0 265px !important; /* 固定宽度为 265px */
 }
 
 /* ========================= */
 /* 右侧插件面板样式 */
 /* ========================= */
 #react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-plugin-view-outline-outline\.panel {
-    width: 250px !important; /* 固定宽度 */
-    position: fixed !important; /* 固定在窗口中 */
-    top: 0; /* 距离顶部对齐 */
-    right: 0; /* 紧贴窗口右侧 */
-    height: 100vh; /* 高度占满整个窗口 */
-    z-index: 1000; /* 确保在其他元素之上 */
-    resize: none !important; /* 禁止拖动调整尺寸 */
-    overflow-x: hidden !important; /* 禁止左右滚动 */
-    min-width: 150px !important; /* 设置最小宽度，防止过小 */
-    max-width: 250px !important; /* 确保不会超出固定宽度 */
+    flex: 0 0 230px !important; /* 固定宽度为 250px */
 }
 
 /* ========================= */
@@ -141,7 +126,7 @@ button > span.sc-eqUAAy.sc-fqkvVR.ljyEMI.cqJsbA.icon-sync {
 /* ========================= */
 #react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-plugin-view-outline-outline\.panel,
 #react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-plugin-view-outline-outline\.panel * {
-    width: 250px !important; /* 固定宽度 */
+    width: 230px !important; /* 固定宽度 */
     box-sizing: border-box !important; /* 确保内边距和边框不会影响宽度 */
     overflow-x: hidden !important; /* 禁止水平滚动 */
     max-width: none !important;
@@ -151,24 +136,26 @@ button > span.sc-eqUAAy.sc-fqkvVR.ljyEMI.cqJsbA.icon-sync {
 /* 中间编辑器区域样式调整 */
 /* ========================= */
 #react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl {
-    position: fixed !important; /* 固定在窗口中 */
-    top: 0; /* 距离顶部对齐 */
-    left: 265px !important; /* 紧贴左侧容器 */
-    width: calc(100vw - 265px - 250px) !important; /* 动态计算宽度 */
-    z-index: 999; /* 确保在其他元素之上 */
-    overflow: hidden !important; /* 禁止水平和垂直滚动 */
-    resize: none !important; /* 禁止调整尺寸 */
+    flex-grow: 1 !important; /* 允许中间区域占据剩余空间 */
+    flex-shrink: 1 !important; /* 允许中间区域在空间不足时收缩 */
+    flex-basis: auto !important; /* 动态调整宽度 */
+    width: calc(100vw - 265px - 230px) !important; /* 动态计算宽度 */
+    max-width: none !important; /* 取消最大宽度限制 */
+    box-sizing: border-box !important; /* 确保内边距和边框不会影响宽度 */
 }
 
 /* 应用宽度和左右位置到指定元素 */
 #react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-editor {
     left: 265px !important; /* 紧贴左侧容器 */
-    width: calc(100vw - 265px - 250px) !important; /* 动态计算宽度 */
+    width: calc(100vw - 265px - 230px) !important; /* 动态计算宽度 */
 }
 
 
 /* 修改父容器的宽度限制 */
 #react-root > div.profile-default > div > div.resizableLayoutItem.rli-root {
-    width: 100vw !important; /* 将宽度设置为视口宽度减去左右间距 */
+    width: 100vw !important; /* 占满整个视口宽度 */
     max-width: 100vw !important; /* 确保不会超出视口宽度 */
+    display: flex !important; /* 保持 flex 布局 */
+    flex-direction: row !important; /* 子元素水平排列 */
+    box-sizing: border-box !important; /* 确保内边距和边框不会影响宽度 */
 }
