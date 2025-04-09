@@ -1,6 +1,6 @@
 # Joplin_theme
 
-[中文版文档](.README_Zh-CN.md)
+[中文版文档](README_Zh-CN.md)
 
 A repo for a joplin style (focus to follow my typora theme)
 
