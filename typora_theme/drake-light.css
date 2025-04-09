@@ -53,7 +53,7 @@
     --height-light-border-color: var(--drake-highlight);
     --yaml-color: #777777;
     --yaml-bg-color: #f7f7f7;
-    --footnotes-bg-color: #3c3d3e;
+    --footnotes-bg-color: #ffffff;
     --footnotes-highlight: #FFD760;
     --table-border-color: #dfe2e5;
     --table-header-bg-color: #f8f8f8;
@@ -117,7 +117,6 @@ p {
 /*inline latex*/
 .MathJax {
     font-size: 120% !important;
-    background-color: var(--formulas-block-bg-color);
     color: var(--code-block-color);
     border-radius: 3px;
     padding: 0.2rem 0.4rem;
@@ -130,9 +129,17 @@ p {
     font-family: var(--latex-font);
     
 }
+/* 定义公式预览块样式 */
+#math-inline-preview * {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    font-size: 120%;
+}
+
 /*math-block latex*/
 .md-math-block .MathJax {
-    border: 0px solid #dcdcdc;
+    border: none;
     font-size: 130% !important;
 }
 
@@ -336,34 +343,6 @@ blockquote {
     transition: transform 0.5s;
     
 }
-/* ##################################################################### */
-/* 引用块 */
-
-
-/* blockquote {
-    font-family: var(--head-font);
-    color: var(--quote-text-color);
-    background-color: var(--quote-bg-color);
-    border-radius: 10px;
-    
-    position: relative;
-    transition: transform 0.5s;
-    padding: 0px 15px 5px;
-}
-blockquote::before {
-    content: '\ec81';
-    display: block;
-    margin: 5px -15px;
-    padding-left: 15px;
-    font-family: "iconfont";
-    font-size: 1.2rem;
-    height: 30px;
-    color: var(--quote-icon-color);
-    background-color: var(--quote-before-bg-color);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-} */
-
 
 
 blockquote:hover::before {
@@ -1024,7 +1003,6 @@ span.md-def-name {
     padding: 0 2px;
     font-family: inherit;
     color: var(--footnotes-highlight);
-    background-color: inherit;
 }
 
 .code-tooltip-content a {
@@ -1032,7 +1010,6 @@ span.md-def-name {
 }
 
 div.code-tooltip-content {
-    box-shadow: 0 0 8px #00000045;
     background: var(--footnotes-bg-color);
 }
 
