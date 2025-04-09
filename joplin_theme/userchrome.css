@@ -1,0 +1,85 @@
+/* 定义全局变量 */
+:root {
+    --transition-duration-short: 0.12s; /* 短延迟 */
+    --transition-duration-long: 0.5s;  /* 长延迟 */
+}
+
+/* 父元素及其所有子元素的统一样式 */
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div {
+    background-color: #f4f5f6 !important;
+    color: #000000 !important;
+}
+
+/* 鼠标悬停和选中状态的样式 */
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div .list-item-wrapper.-highlight-on-hover {
+    background-color: inherit !important;
+    color: inherit !important;
+    transition: color var(--transition-duration-short) ease, background-color var(--transition-duration-short) ease;
+}
+
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div .list-item-wrapper.-highlight-on-hover:hover {
+    background-color: #e0e0e0 !important;
+    color: #000000 !important;
+}
+
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div .list-item-wrapper.-highlight-on-hover.-selected,
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div .list-item-wrapper.-highlight-on-hover.selected {
+    background-color: #d0d0d0 !important;
+    color: #000000 !important;
+}
+
+/* 强制覆盖子元素的字体颜色 */
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div .list-item-wrapper.-highlight-on-hover * {
+    color: inherit !important;
+}
+
+/* 修复指定选择器的后代文本和图像样式 */
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(1) > div > div > div > div:nth-child(2) > div > span,
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(1) > div > div > div > div.list-item-wrapper.sidebar-header-container > div > span {
+    color: #000000 !important;
+}
+
+/* 修复指定图标的反色样式 */
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(1) > div > div > div > div.list-item-wrapper.sidebar-header-container > div > i,
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(1) > div > div > button > i {
+    filter: invert(1) !important;
+}
+
+/* 按钮样式及其悬停效果 */
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(2) > button {
+    background-color: #2d6bdc;
+    border-radius: 4px;
+    padding: 8px 12px;
+    transition: background-color var(--transition-duration-short) ease, color var(--transition-duration-short) ease;
+}
+
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(2) > button:hover {
+    background-color: #1e54b6 !important;
+    color: #000000 !important;
+}
+
+/* 修复按钮内图像反色和文本颜色 */
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(2) > button > span {
+    color: #000000 !important;
+    filter: invert(1) !important;
+}
+
+/* 强制覆盖特定文本和图标的颜色 */
+div.sc-hmdomO.UdFVY,
+button > span.sc-aXZVg.knHWku {
+    color: #000000 !important;
+}
+
+button > span.sc-eqUAAy.sc-fqkvVR.ljyEMI.cqJsbA.icon-sync {
+    filter: invert(1) !important;
+}
+
+/* 修复新建笔记按钮的文本颜色 */
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-noteList > div.sc-cwHptR.DnUmE > div > div.sc-dtInlm.kNWbhK > div.sc-dCFHLb.gdGgaO.new-note-todo-buttons > button.sc-gEvEer.sc-dcJsrY.kbPjVE.eYfYjM.sc-jXbUNg.sc-kOPcWz.hNhFhC.new-note-button > span.sc-aXZVg.knHWku {
+    color: #ffffff !important;
+}
+
+/* 加粗按钮内的中文文本 */
+#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(2) > button > span.sc-aXZVg.knHWku {
+    font-weight: bold !important;
+}

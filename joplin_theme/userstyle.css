@@ -1,0 +1,236 @@
+/* 引入 userstyle.css 的变量 */
+:root {
+  --text-color: #333333;
+  --bg-color: #ffffff;
+  --blockquote-border-color: #e95f59;
+  --blockquote-bg-color: #fdefee;
+  --blockquote-color: var(--text-color);
+  --code-block-bg-color: #f6f8fa;
+  --code-block-color: #24292e;
+  --table-border-color: #dfe2e5;
+  --table-header-bg-color: #f8f8f8;
+  --table-bg-color: #ffffff;
+  --table-n2-bg-color: #f8f8f8;
+  --a-color: #d63200;
+  --strong-color: #e95f59;
+  --title-color: #273849;
+  --note-border-color: #3e69d7;
+  --note-bg-color: rgba(62, 105, 215, 0.06);
+  --tip-border-color: #03b736;
+  --tip-bg-color: rgba(3, 183, 54, 0.06);
+  --important-border-color: #8250df;
+  --important-bg-color: rgba(130, 80, 223, 0.06);
+  --warning-border-color: #e30f2e;
+  --warning-bg-color: rgba(227, 15, 46, 0.06);
+  --caution-border-color: #f59102;
+  --caution-bg-color: rgba(245, 145, 2, 0.06);
+}
+
+/* markdown-here-wrapper 样式迁移 */
+.markdown-here-wrapper {
+  font-size: 16px;
+  line-height: 1.8em;
+  letter-spacing: 0.1em;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+mark {
+  color: var(--strong-color);
+  font-weight: bold;
+  font-size: 0.9rem;  
+  border: 2px solid var(--strong-color); /* 添加边框 */
+  border-radius: 1.5rem; /* 使边框呈椭圆形 */ 
+  padding: 0.2rem 0.3rem; /* 添加内边距，使边框与文本之间有间距 */  
+  line-height: 2.5; /* 行高 */
+  background-color: transparent;  
+  margin: 0 0.2rem; /* 添加外边距，使文本与其他文本之间有间距 */
+}
+
+/* 段落样式 */
+p {
+  margin: 7px 3px !important; /* 段落之间的间隔 */
+  line-height: 1.8;
+  color: var(--text-color);
+}
+
+/* 代码块样式 */
+pre, code {
+  font-size: 14px;
+  font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+  background-color: var(--code-block-bg-color);
+  color: var(--code-block-color);
+  border-radius: 3px;
+  padding: 0.5rem;
+}
+
+pre {
+  display: block !important;
+  overflow: auto;
+}
+
+code {
+  display: inline;
+  white-space: pre-wrap;
+}
+
+/* 强调文字 */
+strong, b {
+  color: var(--strong-color);
+  font-weight: bold;
+}
+
+em, i {
+  color: var(--a-color);
+}
+
+/* 引用块样式 */
+blockquote {
+  border-left: 4px solid var(--blockquote-border-color);
+  background-color: var(--blockquote-bg-color);
+  color: var(--blockquote-color) !important;
+  padding: 16px 10px;
+  border-radius: 4px;
+  margin-left: 1em;
+  position:relative;
+  text-align: left;
+  margin-top: 11px;
+  
+}
+
+/* 表格样式 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--table-bg-color);
+}
+
+table th, table td {
+  border: 1px solid var(--table-border-color);
+  padding: 6px 13px;
+}
+
+table thead th {
+  background-color: var(--table-header-bg-color);
+  font-weight: bold;
+}
+
+table tr:nth-child(2n) {
+  background-color: var(--table-n2-bg-color);
+}
+
+/* 链接样式 */
+a {
+  color: var(--a-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 标题样式 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--title-font);
+  position: relative;
+  margin-top: 28px; /* 标题上间距 */
+  margin-bottom: 21px; /* 标题下间距 */
+  font-weight: bold;
+  line-height: 1.4;
+  cursor: text;
+  color: var(--title-color);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5, h6 {
+  font-size: 1rem;
+}
+
+/* 列表样式 */
+ul, ol {
+  padding-left: 2em;
+}
+
+li {
+  margin: 0.5em 0;
+}
+
+/* 提取公共样式 */
+.markdown-alert {
+  font-family: var(--head-font);
+  border-radius: 4px;
+  padding: 1px 15px;
+  transition: transform 0.5s;
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+
+.markdown-alert p {
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+/* 定义不同类型的提示块样式 */
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--note-border-color);
+  background: var(--note-bg-color);
+  color: var(--note-border-color);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--tip-border-color);
+  background: var(--tip-bg-color);
+  color: var(--tip-border-color);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--important-border-color);
+  background: var(--important-bg-color);
+  color: var(--important-border-color);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--caution-border-color);
+  background: var(--caution-bg-color);
+  color: var(--caution-border-color);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--warning-border-color);
+  background: var(--warning-bg-color);
+  color: var(--warning-border-color);
+}
+
+/* 定义文本颜色 */
+.markdown-alert .markdown-alert-text-note,
+.markdown-alert .markdown-alert-text-tip,
+.markdown-alert .markdown-alert-text-important,
+.markdown-alert .markdown-alert-text-caution,
+.markdown-alert .markdown-alert-text-warning {
+  color: inherit;
+}
+
+/* 添加列表样式 */
+#rendered-md > ol, ul {
+  margin-left: -0.8em;
+  
+}
+
+#rendered-md > blockquote {
+  margin-left: -0.8em;
+}
