@@ -259,4 +259,19 @@ a:hover {
   font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
   display: inline-block;
   border: 1px solid #dcdcdc;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* ========================= */
+/* 行内代码样式 */
+/* ========================= */
+.inline-code {
+  padding: 1.3px 3px;
+  border-radius: 6px; /* 添加圆角 */
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  background-color: var(--bg-color) !important;
+  color: var(--a-color);
 }

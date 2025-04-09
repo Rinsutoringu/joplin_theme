@@ -118,7 +118,7 @@ button > span.sc-eqUAAy.sc-fqkvVR.ljyEMI.cqJsbA.icon-sync {
 /* 右侧插件面板样式 */
 /* ========================= */
 #react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-plugin-view-outline-outline\.panel {
-    flex: 0 0 230px !important; /* 固定宽度为 250px */
+    flex: 0 0 220px !important; /* 固定宽度为 250px */
 }
 
 /* ========================= */
@@ -126,7 +126,7 @@ button > span.sc-eqUAAy.sc-fqkvVR.ljyEMI.cqJsbA.icon-sync {
 /* ========================= */
 #react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-plugin-view-outline-outline\.panel,
 #react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-plugin-view-outline-outline\.panel * {
-    width: 230px !important; /* 固定宽度 */
+    width: 220px !important; /* 固定宽度 */
     box-sizing: border-box !important; /* 确保内边距和边框不会影响宽度 */
     overflow-x: hidden !important; /* 禁止水平滚动 */
     max-width: none !important;

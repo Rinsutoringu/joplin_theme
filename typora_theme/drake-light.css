@@ -117,12 +117,22 @@ p {
 /*inline latex*/
 .MathJax {
     font-size: 120% !important;
+    background-color: var(--formulas-block-bg-color);
+    color: var(--code-block-color);
+    border-radius: 3px;
+    padding: 0.2rem 0.4rem;
+    display: inline-block;
+    border: 1px solid #dcdcdc;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .MathJax text, .MathJax use {
     font-family: var(--latex-font);
+    
 }
 /*math-block latex*/
 .md-math-block .MathJax {
+    border: 0px solid #dcdcdc;
     font-size: 130% !important;
 }
 
@@ -260,6 +270,12 @@ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
 #write code, tt {
     margin: 0 2px;
     color: var(--drake-highlight);
+    border: 1px solid #dcdcdc;
+    border-radius: 6px; /* 添加圆角 */
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 1.3px 3px;
 }
 
 /*variable*/
@@ -420,6 +436,7 @@ blockquote:hover::before {
 #write a {
     color: var(--a-color);
     text-decoration: none;
+    border-bottom: 1px solid var(--a-color);
 }
 #write h2 a .md-plain {
     border-bottom: .2rem solid var(--a-color);
