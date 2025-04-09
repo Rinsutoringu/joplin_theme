@@ -5,7 +5,8 @@
   --blockquote-border-color: #e95f59;
   --blockquote-bg-color: #fdefee;
   --blockquote-color: var(--text-color);
-  --code-block-bg-color: #f6f8fa;
+  --code-block-bg-color: #f3f3f3;
+  --formulas-block-bg-color: #f2f5f0;
   --code-block-color: #24292e;
   --table-border-color: #dfe2e5;
   --table-header-bg-color: #f8f8f8;
@@ -58,10 +59,25 @@ p {
 pre, code {
   font-size: 14px;
   font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
-  background-color: var(--code-block-bg-color);
+  background-color: var(--code-block-bg-color); /* 使用文本背景色 */
   color: var(--code-block-color);
   border-radius: 3px;
   padding: 0.5rem;
+  margin: 1rem 0; /* 添加上下间距 */
+  overflow: auto; /* 确保内容可滚动 */
+}
+
+/* 确保 pre.hljs 的背景色一致 */
+pre.hljs {
+  background-color: var(--code-block-bg-color); /* 使用文本背景色 */
+  border-radius: 3px;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  overflow: auto;
+}
+
+pre.joplin-source {
+  display: none !important; /* 隐藏原始代码块 */
 }
 
 pre {
@@ -233,4 +249,14 @@ li {
 
 #rendered-md > blockquote {
   margin-left: -0.8em;
+}
+
+.katex {
+  background-color: var(--formulas-block-bg-color); /* 使用代码块的背景色 */
+  color: var(--code-block-color); /* 使用代码块的文本颜色 */
+  border-radius: 3px; /* 圆角 */
+  padding: 0.2rem 0.4rem; /* 内边距 */
+  font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace; /* 使用等宽字体 */
+  display: inline-block; /* 确保是内联块状元素 */
+  border: 1px solid #dcdcdc;
 }

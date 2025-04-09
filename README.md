@@ -14,6 +14,6 @@ The Joplin theme should be placed in the `C:\Users\[UserAccountName]\.config\jop
 
 The Typora theme should be placed in the `C:\Users\[UserAccountName]\AppData\Roaming\Typora\themes` directory, and then restart Typora to enable it.
 
-There is already an automation script! Just double-click to execute it! If you want to uninstall the theme, simply overwrite the contents of the backup folder back to the Joplin root directory.
+There is already an automation script `install_theme.bat`! Just double-click to execute it! If you want to uninstall the theme, simply overwrite the contents of the backup folder back to the Joplin root directory.
 
 (To be automated)
