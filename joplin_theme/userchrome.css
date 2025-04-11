@@ -1,67 +1,60 @@
-/* 114514 */
-
 /* 定义全局变量 */
 :root {
-    --transition-duration-short: 0.12s; /* 短延迟 */
-    --transition-duration-long: 0.5s;  /* 长延迟 */
+    --transition-duration-short: 0.12s;
+    --transition-duration-long: 0.5s;
 }
 
 /* 父元素及其所有子元素的统一样式 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div {
+div[class*="rli-sideBar"] {
     background-color: #f4f5f6 !important;
     color: #000000 !important;
 }
 
 /* 鼠标悬停和选中状态的样式 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div .list-item-wrapper.-highlight-on-hover {
+div[class*="rli-sideBar"] .list-item-wrapper.-highlight-on-hover {
     background-color: inherit !important;
     color: inherit !important;
     transition: color var(--transition-duration-short) ease, background-color var(--transition-duration-short) ease;
 }
 
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div .list-item-wrapper.-highlight-on-hover:hover {
+div[class*="rli-sideBar"] .list-item-wrapper.-highlight-on-hover:hover {
     background-color: #e0e0e0 !important;
     color: #000000 !important;
 }
 
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div .list-item-wrapper.-highlight-on-hover.-selected,
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div .list-item-wrapper.-highlight-on-hover.selected {
+div[class*="rli-sideBar"] .list-item-wrapper.-highlight-on-hover.-selected,
+div[class*="rli-sideBar"] .list-item-wrapper.-highlight-on-hover.selected {
     background-color: #d0d0d0 !important;
     color: #000000 !important;
 }
 
 /* 强制覆盖子元素的字体颜色 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div .list-item-wrapper.-highlight-on-hover * {
+div[class*="rli-sideBar"] .list-item-wrapper.-highlight-on-hover * {
     color: inherit !important;
 }
 
 /* 修复指定选择器的后代文本和图像样式 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(1) > div > div > div > div:nth-child(2) > div > span,
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(1) > div > div > div > div.list-item-wrapper.sidebar-header-container > div > span {
+div[class*="rli-sideBar"] span,
+div[class*="rli-sideBar"] i {
     color: #000000 !important;
-}
-
-/* 修复指定图标的反色样式 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(1) > div > div > div > div.list-item-wrapper.sidebar-header-container > div > i,
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(1) > div > div > button > i {
     filter: invert(1) !important;
 }
 
 /* 按钮样式及其悬停效果 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(2) > button {
+div[class*="rli-sideBar"] button {
     background-color: #2d6bdc;
     border-radius: 4px;
     padding: 8px 12px;
     transition: background-color var(--transition-duration-short) ease, color var(--transition-duration-short) ease;
 }
 
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(2) > button:hover {
+div[class*="rli-sideBar"] button:hover {
     background-color: #1e54b6 !important;
     color: #000000 !important;
 }
 
 /* 修复按钮内图像反色和文本颜色 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(2) > button > span {
+div[class*="rli-sideBar"] button > span {
     color: #000000 !important;
     filter: invert(1) !important;
 }
@@ -77,91 +70,56 @@ button > span.sc-eqUAAy.sc-fqkvVR.ljyEMI.cqJsbA.icon-sync {
 }
 
 /* 修复新建笔记按钮的文本颜色 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-noteList > div.sc-cwHptR.DnUmE > div > div.sc-dtInlm.kNWbhK > div.sc-dCFHLb.gdGgaO.new-note-todo-buttons > button.sc-gEvEer.sc-dcJsrY.kbPjVE.eYfYjM.sc-jXbUNg.sc-kOPcWz.hNhFhC.new-note-button > span.sc-aXZVg.knHWku {
+button.new-note-button > span.sc-aXZVg.knHWku {
     color: #ffffff !important;
 }
 
 /* 加粗按钮内的中文文本 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 > div.resizableLayoutItem.rli-sideBar > div > div > div:nth-child(2) > button > span.sc-aXZVg.knHWku {
+div[class*="rli-sideBar"] button > span.sc-aXZVg.knHWku {
     font-weight: bold !important;
 }
 
-/* 
-隐藏开关！
-*/
-
-/* 隐藏了超文本编辑器开关 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-editor > div > div > div > div > div:nth-child(2) > div > div:nth-child(1) > div > div.group.-right > button {
+/* 隐藏特定按钮 */
+button[title="切换编辑器布局"],
+button[title="目录开关"] {
     display: none !important;
 }
-/* 隐藏了双栏文本编辑器开关 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-editor > div > div > div > div > div.note-title-wrapper > div > div > div:nth-child(2) > button:nth-child(3) {
-    display: none !important;
-}
-/* 隐藏了目录开关 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-editor > div > div > div > div > div.note-title-wrapper > div > div > div:nth-child(2) > button:nth-child(5) {
-    display: none !important;
-}
-
-/* 
-限定编辑器区域！
-*/
 
 /* ========================= */
 /* 左侧容器样式 */
 /* ========================= */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-pksTEGpaCw5MJTUyIFcku4 {
-    flex: 0 0 265px !important; /* 固定宽度为 265px */
+div[class*="rli-tempContainer"]:first-child {
+    flex: 0 0 265px !important;
 }
 
 /* ========================= */
 /* 右侧插件面板样式 */
 /* ========================= */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-plugin-view-outline-outline\.panel {
-    flex: 0 0 220px !important; /* 固定宽度为 250px */
-}
-
-/* ========================= */
-/* 右侧插件面板及其所有后代样式 */
-/* ========================= */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-plugin-view-outline-outline\.panel,
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-plugin-view-outline-outline\.panel * {
-    width: 220px !important; /* 固定宽度 */
-    box-sizing: border-box !important; /* 确保内边距和边框不会影响宽度 */
-    overflow-x: hidden !important; /* 禁止水平滚动 */
-    max-width: none !important;
+div[class*="rli-plugin-view-outline"] {
+    flex: 0 0 220px !important;
+    width: 220px !important;
+    overflow-x: hidden !important;
 }
 
 /* ========================= */
 /* 中间编辑器区域样式调整 */
 /* ========================= */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl {
-    flex-grow: 1 !important; /* 允许中间区域占据剩余空间 */
-    flex-shrink: 1 !important; /* 允许中间区域在空间不足时收缩 */
-    flex-basis: auto !important; /* 动态调整宽度 */
-    width: calc(100vw - 265px - 230px) !important; /* 动态计算宽度 */
-    max-width: none !important; /* 取消最大宽度限制 */
-    box-sizing: border-box !important; /* 确保内边距和边框不会影响宽度 */
+div[class*="rli-editor"] {
+    flex-grow: 1 !important;
+    width: calc(100vw - 265px - 230px) !important;
+    box-sizing: border-box !important;
 }
 
 /* 顶部书签栏贴靠左右 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-plugin-view-joplin\.plugin\.note\.tabs-note\.tabs\.panel, 
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-plugin-view-joplin\.plugin\.note\.tabs-note\.tabs\.panel > div.sc-cwHptR.DnUmE {
-    width: calc(100vw - 265px - 230px) !important; /* 动态计算宽度 */
+div[class*="rli-plugin-view-joplin"] {
+    width: calc(100vw - 265px - 230px) !important;
 }
-
-/* 主面板区域贴靠左右 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-editor, 
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root > div.resizableLayoutItem.rli-tempContainer-sOiiCy5yon6Od7dfitJTUl > div.resizableLayoutItem.rli-editor > div {
-    width: calc(100vw - 265px - 230px) !important; /* 动态计算宽度 */
-}
-
 
 /* 修改父容器的宽度限制 */
-#react-root > div.profile-default > div > div.resizableLayoutItem.rli-root {
-    width: 100vw !important; /* 占满整个视口宽度 */
-    max-width: 100vw !important; /* 确保不会超出视口宽度 */
-    display: flex !important; /* 保持 flex 布局 */
-    flex-direction: row !important; /* 子元素水平排列 */
-    box-sizing: border-box !important; /* 确保内边距和边框不会影响宽度 */
-}`
+div[class*="rli-root"] {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    display: flex !important;
+    flex-direction: row !important;
+    box-sizing: border-box !important;
+}
