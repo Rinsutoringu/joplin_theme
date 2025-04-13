@@ -141,6 +141,7 @@ p {
 .md-math-block .MathJax {
     border: none;
     font-size: 130% !important;
+
 }
 
 /*mermaid*/
@@ -974,8 +975,36 @@ footer {
 
 /*footnotes content*/
 .md-hover-tip .code-tooltip-content {
-    border-radius: 2px;
+    display: flex; /* 使用 Flexbox 布局 */
+    align-items: center; /* 垂直居中 */
+    color: var(--text-color);
+    text-align: center; /* 确保文本内容居中 */
+    padding: 1rem;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    font-size: 130%;
 }
+
+.md-hover-tip * {
+    margin: 0; /* 移除可能影响居中的外边距 */
+    padding: 0; /* 移除可能影响居中的内边距 */
+}
+
+.md-hover-tip .code-tooltip-content:before {
+    content: "『"; /* 在前插入“#” */
+    color: #273849; /* 设置颜色 */
+    margin-right: 0.5rem; /* 添加右边距 */
+    font-size: 2rem;
+    display: inline-block; /* 确保伪元素是行内块级元素 */
+}
+
+.md-hover-tip .code-tooltip-content:after {
+    content: "』"; /* 在前插入“#” */
+    color: #273849; /* 设置颜色 */
+    margin-left: 0.5rem; /* 添加右边距 */
+    font-size: 2rem;
+    display: inline-block; /* 确保伪元素是行内块级元素 */
+}
+
 
 /*footnotes title*/
 span.md-def-name {
