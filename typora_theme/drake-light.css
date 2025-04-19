@@ -79,6 +79,9 @@
     --warning-bg-color: rgba(227, 15, 46, 0.06);
     --caution-border-color: #f59102;
     --caution-bg-color: rgba(245, 145, 2, 0.06);
+    --file-summary-display: block; /* 控制文件摘要显示，设置为none即可禁用 */
+    --file-hide-display: none; /* 控制隐藏文件，设置为none即可禁用 */
+
 }
 
 html {
@@ -1322,3 +1325,34 @@ a.ty-link {
     font-weight: normal;
 }
 
+/* 隐藏特定文件 */
+.file-list-item[data-path$="log.txt"],
+.file-list-item[data-path$="log-clipper.txt"],
+.file-list-item[data-path*="deletion_log_"],
+.file-list-item[data-path$="index.js.LICENSE.txt"] {
+    display: var(--file-hide-display); /* 使用变量控制显示/隐藏 */
+}
+
+/* 针对文件名以 edit- 开头的文件 */
+.file-list-item[data-path*="edit-"] {
+    display: var(--file-summary-display); /* 使用变量控制显示/隐藏 */
+}
+
+/* 隐藏所有子元素 */
+.file-list-item[data-path*="edit-"] > * {
+    display: var(--file-hide-display); /* 使用变量控制显示/隐藏 */
+}
+
+/* 显示文件摘要内容 */
+.file-list-item[data-path*="edit-"] .file-list-item-summary {
+    display: var(--file-summary-display); /* 使用变量控制显示/隐藏 */
+    white-space: pre-wrap; /* 保留换行和回车 */
+    margin: 0.5rem 0; /* 添加段落间距 */
+}
+
+/* 第一行以段落标题方式显示 */
+.file-list-item[data-path*="edit-"] .file-list-item-summary::first-line {
+    font-size: 1.0rem; /* 设置标题大小 */
+    font-weight: bold; /* 加粗显示 */
+    color: #333; /* 设置标题颜色 */
+}
