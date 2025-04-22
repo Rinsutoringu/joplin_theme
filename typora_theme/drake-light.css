@@ -1356,3 +1356,9 @@ a.ty-link {
     font-weight: bold; /* 加粗显示 */
     color: #333; /* 设置标题颜色 */
 }
+
+img {
+    display: block; /* 将图片设置为块级元素 */
+    float: left; /* 图片靠左浮动 */
+    margin: 0 1rem 1rem 0; /* 添加右侧和下方的间距 */
+}
