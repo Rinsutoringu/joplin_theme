@@ -24,6 +24,9 @@
 @import url(./drake/font.css);
 @include-when-export url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+/* =================================================================
+   核心变量定义
+   ================================================================= */
 :root {
     --text-color: #333333;
     --bg-color: #ffffff;
@@ -84,14 +87,19 @@
 
 }
 
+/* =================================================================
+   基础样式设置
+   ================================================================= */
 html {
-    font-size: var(--text-size);
+    font-size: 14px; /* 默认字体大小 */
+    background-color: var(--bg-color);
 }
 
 body {
     font-family: var(--text-font) !important;
     color: var(--text-color);
     -webkit-font-feature-settings: "liga" on, "calt" on;
+    font-feature-settings: "liga" on, "calt" on;
     -webkit-font-smoothing: subpixel-antialiased;
     text-rendering: optimizeLegibility;
     letter-spacing: 0;
@@ -99,14 +107,99 @@ body {
     overflow-x: hidden;
 }
 
-p {
+/* 段落样式 */
+#write p {
     line-height: var(--text-line-height);
 }
 
+/* 写作区域配置 */
+#write {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.43rem 2.14rem 7.14rem; /* 20px 30px 100px converted to rem */
+    font-size: 1rem; /* 基础字体大小使用rem */
+    color: var(--text-color);
+}
 
+#typora-source .CodeMirror-lines {
+    max-width: 1200px;
+}
 
-/*code block*/
-.md-fences {
+/* 段落和列表间距 */
+#write p, 
+#write blockquote, 
+#write ul, 
+#write ol, 
+#write dl, 
+#write table {
+    margin: var(--p-spacing) 0;
+}
+
+#write li > ol,
+#write li > ul {
+    margin: 0 0;
+}
+
+#write li {
+    margin: 0.5em 0;
+}
+
+#write ul, 
+#write ol {
+    padding-inline-start: 2em;
+}
+
+#write ul:first-child,
+#write ol:first-child {
+    margin-top: 0;
+}
+
+#write ul:last-child,
+#write ol:last-child {
+    margin-bottom: 0;
+}
+
+#write > ul:first-child,
+#write > ol:first-child {
+    margin-top: 2.14rem; /* 30px converted to rem */
+}
+
+/* 通用布局规则 */
+body > *:first-child {
+    margin-top: 0 !important;
+}
+
+body > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* 图片样式 - 默认靠左浮动（仅在屏幕显示时） */
+@media screen {
+    #write img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        float: left;
+        margin: 0 1rem 1rem 0;
+        border-left: none;
+        border-right: none;
+        border-radius: 2px;
+    }
+}
+
+/* 通用图片样式 */
+img {
+    border-left: none;
+    border-right: none;
+    border-radius: 2px;
+}
+
+/* =================================================================
+   代码和数学公式样式
+   ================================================================= */
+
+/* 代码块样式 */
+#write .md-fences {
     font-size: 1rem;
     padding: 0.5rem !important;
     border-radius: 2px;
@@ -117,8 +210,8 @@ p {
     line-height: var(--code-line-height);
 }
 
-/*inline latex*/
-.MathJax {
+/* 行内数学公式 */
+#write .MathJax {
     font-size: 120% !important;
     color: var(--code-block-color);
     border-radius: 3px;
@@ -140,14 +233,13 @@ p {
     font-size: 120%;
 }
 
-/*math-block latex*/
+/* 数学公式块样式 */
 .md-math-block .MathJax {
     border: none;
     font-size: 130% !important;
-
 }
 
-/*mermaid*/
+/* Mermaid 流程图样式 */
 [id^=mermaidChart] .cluster rect {
     fill: var(--table-n2-bg-color) !important;
     stroke: var(--table-border-color) !important;
@@ -277,25 +369,26 @@ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
     font-size: 1rem !important;
 }
 
-/*code snippet*/
-#write code, tt {
+/* 行内代码样式 */
+#write code, 
+#write tt {
     margin: 0 2px;
     color: var(--drake-highlight);
     border: 1px solid #dcdcdc;
-    border-radius: 6px; /* 添加圆角 */
+    border-radius: 6px;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
     padding: 1.3px 3px;
 }
 
-/*variable*/
-var {
+/* 变量样式 */
+#write var {
     color: var(--variable-color);
     font-weight: bold;
 }
 
-/*raw block*/
+/* 原始块样式 */
 .md-rawblock-control:not(.md-rawblock-tooltip) {
     border-radius: 2px 0 2px 2px;
     padding: 0.2rem !important;
@@ -322,8 +415,12 @@ var {
     opacity: 1;
 }
 
-/*quote block*/
-blockquote:before {
+/* =================================================================
+   引用和警告框样式
+   ================================================================= */
+
+/* 引用块样式 */
+#write blockquote:before {
     display: block;
     position: absolute;
     content: '';
@@ -335,7 +432,7 @@ blockquote:before {
     border-radius: 2px;
 }
 
-blockquote {
+#write blockquote {
     color: var(--blockquote-color);
     border-radius: 2px;
     padding: 10px 16px;
@@ -345,11 +442,9 @@ blockquote {
     font-family: var(--head-font);
     border-radius: 4px;
     transition: transform 0.5s;
-    
 }
 
-
-blockquote:hover::before {
+#write blockquote:hover::before {
     color: var(--quote-hover-icon-color);
 }
 .md-alert {
@@ -415,43 +510,60 @@ blockquote:hover::before {
     color: var(--blockquote-color);
 }
 
-/*link*/
+/* =================================================================
+   链接和图片样式
+   ================================================================= */
+
+/* 链接样式 */
 #write a {
     color: var(--a-color);
     text-decoration: none;
     border-bottom: 1px solid var(--a-color);
 }
+
 #write h2 a .md-plain {
     border-bottom: .2rem solid var(--a-color);
 }
-.on-focus-mode #write a .md-plain, .on-focus-mode .md-htmlblock-container a:hover {
+
+.on-focus-mode #write a .md-plain, 
+.on-focus-mode .md-htmlblock-container a:hover {
     border-bottom: .1rem solid var(--blur-text-color);
 }
-#write a .md-plain, .md-htmlblock-container a:hover,
-.on-focus-mode #write .md-focus a .md-plain, .md-focus .md-htmlblock-container a:hover {
+
+#write a .md-plain, 
+.md-htmlblock-container a:hover,
+.on-focus-mode #write .md-focus a .md-plain, 
+.md-focus .md-htmlblock-container a:hover {
     border-bottom: .1rem solid var(--a-color);
 }
+
 [md-inline=link] a {
     margin: 0 .2rem;
 }
+
 a:any-link {
     color: var(--a-color);
 }
 
+/* 图片样式 - 默认靠左浮动（仅在屏幕显示时） */
+@media screen {
+    #write img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        float: left;
+        margin: 0 1rem 1rem 0;
+        border-left: none;
+        border-right: none;
+        border-radius: 2px;
+    }
+}
+
+/* 通用图片样式 */
 img {
     border-left: none;
     border-right: none;
-    vertical-align: baseline;
     border-radius: 2px;
-}
-
-#write {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 30px 100px;
-}
-#typora-source .CodeMirror-lines {
-    max-width: 1200px;
 }
 
 #write > ul:first-child,
@@ -467,12 +579,13 @@ body > *:last-child {
     margin-bottom: 0 !important;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* 标题样式 */
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
     font-family: var(--title-font);
     position: relative;
     margin-top: 2rem;
@@ -483,39 +596,68 @@ h6 {
     color: var(--title-color);
 }
 
-h3.md-focus:before, h4.md-focus:before, h5.md-focus:before, h6.md-focus:before {
+#write h3.md-focus:before, 
+#write h4.md-focus:before, 
+#write h5.md-focus:before, 
+#write h6.md-focus:before {
     visibility: hidden;
 }
 
-h1 {
+#write h1 {
     font-size: 2rem;
-    /* text-align: center; */
     margin-top: 0;
+    position: relative;
+    width: fit-content;
 }
 
-h2 {
+/* H1 下方短线 - 文本长度的2倍且更粗 */
+#write h1::after {
+    content: "";
+    display: block;
+    width: 200%; /* 相对于文本内容的2倍 */
+    height: 4px; /* 更粗的线条 */
+    background-color: var(--title-color);
+    margin: 0.5rem 0 1rem 0;
+    border-radius: 2px;
+}
+
+#write h2 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
+    position: relative;
+    width: fit-content;
 }
 
-.on-focus-mode h2.md-end-block.md-heading:not(.md-focus):not(.md-focus-container):after {
-    background-color: var(--blur-text-color) !important;
+/* H2 下方短线 - 与文本等长 */
+#write h2::after {
+    content: "";
+    display: block;
+    width: 100%; /* 与文本内容等长 */
+    height: 2px;
+    background-color: var(--h2-underline-color);
+    margin: 0.3rem 0 1rem 0;
+    border-radius: 1px;
 }
 
-h3 {
+#write h3 {
     font-size: 1.4rem;
 }
 
-h4 {
+#write h4 {
     font-size: 1.2rem;
 }
 
-h5 {
+#write h5 {
     font-size: 1rem;
 }
 
-h6 {
+#write h6 {
     font-size: 1rem;
+}
+
+/* 专注模式样式 */
+.on-focus-mode #write h2.md-end-block.md-heading:not(.md-focus):not(.md-focus-container):after {
+    background-color: var(--blur-text-color) !important;
 }
 
 h1:hover a.anchor,
@@ -642,40 +784,48 @@ ol:last-child {
 .ty-table-edit {
     margin-top: -1rem !important;
 }
+/* 表格样式 */
 #write table {
     margin-top: 1rem;
     word-break: initial;
     background-color: var(--table-bg-color);
 }
-table tr {
+
+#write table tr {
     border-top: .1em solid var(--table-border-color);
     margin: 0;
     padding: 0;
 }
-table th {
+
+#write table th {
     font-weight: bold;
     border: .1em solid var(--table-border-color);
     border-bottom: 0;
     margin: 0;
     padding: 6px 13px;
 }
-table td {
+
+#write table td {
     border: .1em solid var(--table-border-color);
     margin: 0;
     padding: 6px 13px;
 }
-table thead {
+
+#write table thead {
     background-color: var(--table-header-bg-color);
 }
-table tr:nth-child(2n) {
+
+#write table tr:nth-child(2n) {
     background-color: var(--table-n2-bg-color);
 }
-table tr th:first-child,
-table tr td:first-child {
+
+#write table tr th:first-child,
+#write table tr td:first-child {
     margin-top: 0;
 }
-table tr th:last-child,
-table tr td:last-child {
+
+#write table tr th:last-child,
+#write table tr td:last-child {
     margin-bottom: 0;
 }
 
@@ -687,28 +837,29 @@ table tr td:last-child {
     background-color: var(--table-header-bg-color);
 }
 
-/* height light */
+/* 高亮文本样式 */
 #write mark {
     color: var(--strong-color);
     font-weight: bold;
     font-size: 0.9rem;  
-    border: 2px solid var(--strong-color); /* 添加边框 */
-    border-radius: 1.5rem; /* 使边框呈椭圆形 */ 
-    padding: 0.2rem 0.3rem; /* 添加内边距，使边框与文本之间有间距 */  
-    line-height: 2.5; /* 行高 */
+    border: 2px solid var(--strong-color);
+    border-radius: 1.5rem;
+    padding: 0.2rem 0.3rem;
+    line-height: 2.5;
     background-color: transparent;  
-    margin: 0 0.2rem; /* 添加外边距，使文本与其他文本之间有间距 */
+    margin: 0 0.2rem;
 }
 
-strong {
+/* 加粗文本样式 */
+#write strong {
     color: var(--quote-text-color);
     font-weight: bold;
     font-size: 1.1rem;
-    line-height: 1.8; /* 行高 */
-    padding: 0.2rem 0.3rem; /* 添加内边距，使边框与文本之间有间距 */  
+    line-height: 1.8;
+    padding: 0.2rem 0.3rem;
 }
 
-/*shortcut*/
+/* 快捷键样式 */
 kbd {
     border: .1em solid #5b5b5e;
     background: transparent;
@@ -729,22 +880,72 @@ kbd {
     margin-left: -1.3em;
 }
 
+/* 打印/导出样式 */
 @media print {
     html {
         font-size: 12px;
     }
 
+    /* 避免分页 */
     table,
-    pre {
+    pre,
+    img,
+    figure,
+    .md-image,
+    .md-diagram-panel-preview,
+    svg,
+    .MathJax {
         page-break-inside: avoid;
+        break-inside: avoid;
     }
 
     pre {
         word-wrap: break-word;
     }
+
+    /* 取消浮动，确保图片正确排版 */
+    img {
+        float: none !important;
+        display: block !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 0 0 0.75rem 0 !important;
+    }
+
+    /* 禁用浮动类 */
+    .align-left, 
+    .align-right, 
+    .float-left, 
+    .float-right {
+        float: none !important;
+    }
+
+    /* 清除浮动影响 */
+    .md-image, 
+    img + img {
+        clear: both !important;
+    }
+
+    /* SVG图表适应 */
+    svg, 
+    .md-diagram-panel-preview svg {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* 单独图片段落 */
+    p > img:only-child {
+        margin: 0 0 0.75rem 0 !important;
+    }
+
+    /* 导出时的颜色调整 */
+    .typora-export * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
 }
 
-/*YAML*/
+/* YAML 前置内容样式 */
 #write pre.md-meta-block {
     padding: 1rem;
     font-size: 1rem;
@@ -848,20 +1049,20 @@ kbd {
     margin-top: 1px;
 }
 
-/*export background*/
+/* 导出背景样式 */
 .export-detail,
 .export-item.active,
 .export-items-list-control {
     background: var(--active-file-bg-color) !important;
 }
 
-/*source code mode*/
+/* 源码模式样式 */
 .cm-s-typora-default .CodeMirror-activeline-background,
 .typora-sourceview-on #toggle-sourceview-btn {
     background: var(--active-file-bg-color);
 }
 
-/*search input*/
+/* 搜索输入框样式 */
 .form-control {
     border: none;
     border-radius: 2px;
@@ -906,7 +1107,7 @@ kbd {
     top: 10px;
 }
 
-/** focus mode */
+/* 专注模式样式 */
 .on-focus-mode blockquote {
     border-left-color: rgba(85, 85, 85, 0.12);
 }
@@ -918,7 +1119,7 @@ footer {
     font-family: initial;
 }
 
-/*sidebar*/
+/* 侧边栏样式 */
 .file-library-node.file-tree-node.file-node-root {
     font-size: var(--file-tree-text-size);
 }
@@ -959,7 +1160,7 @@ footer {
     font-size: var(--toc-text-size);
 }
 
-/*footnotes mark*/
+/* 脚注标记样式 */
 #write .md-footnote {
     background-color: inherit;
     color: var(--drake-highlight);
@@ -976,7 +1177,7 @@ footer {
     content: "]";
 }
 
-/*footnotes content*/
+/* 脚注内容样式 */
 .md-hover-tip .code-tooltip-content {
     display: flex; /* 使用 Flexbox 布局 */
     align-items: center; /* 垂直居中 */
@@ -1009,7 +1210,7 @@ footer {
 }
 
 
-/*footnotes title*/
+/* 脚注标题样式 */
 span.md-def-name {
     padding-right: 3ch;
     padding-left: 0;
@@ -1017,7 +1218,7 @@ span.md-def-name {
     font-weight: normal;
 }
 
-/*footnotes desc*/
+/* 脚注描述样式 */
 .footnotes {
     font-size: 1rem;
     font-weight: normal;
@@ -1025,7 +1226,7 @@ span.md-def-name {
     position: relative;
 }
 
-/*footnotes tooltip text*/
+/* 脚注提示文本样式 */
 .code-tooltip-content .md-plain {
     font-size: 0.9rem;
     font-family: inherit;
@@ -1093,7 +1294,7 @@ div.code-tooltip-content {
     background: var(--btn-hover-bg-color);
 }
 
-/*checkbox*/
+/* 复选框样式 */
 #write input[type=checkbox] {
     opacity: 0;
     height: 1.6rem;
@@ -1127,7 +1328,7 @@ div.code-tooltip-content {
     line-height: 1.6rem;
 }
 
-/*insert table*/
+/* 插入表格对话框样式 */
 .btn {
     border-radius: 2px;
 }
@@ -1164,7 +1365,7 @@ div.code-tooltip-content {
     border-radius: 2px;
 }
 
-/*preference panel*/
+/* 偏好设置面板样式 */
 #megamenu-content {
     background-image: none !important;
     background-color: var(--bg-color);
@@ -1355,10 +1556,4 @@ a.ty-link {
     font-size: 1.0rem; /* 设置标题大小 */
     font-weight: bold; /* 加粗显示 */
     color: #333; /* 设置标题颜色 */
-}
-
-img {
-    display: block; /* 将图片设置为块级元素 */
-    float: left; /* 图片靠左浮动 */
-    margin: 0 1rem 1rem 0; /* 添加右侧和下方的间距 */
 }
