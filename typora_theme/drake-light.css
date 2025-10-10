@@ -239,6 +239,27 @@ img {
     font-size: 130% !important;
 }
 
+/* 针对 MathJax（包含 SVG、HTML 输出）明确空白与断行策略，
+   避免主题其他全局设置影响到数学公式中的空格渲染 */
+.MathJax,
+.MathJax_Display,
+.md-math-block,
+.md-math-block .MathJax {
+    white-space: pre;           /* 保留 MathJax 内部的空白 */
+    word-break: normal;         /* 禁止强制断字 */
+    overflow-wrap: normal;
+    hyphens: none;
+    letter-spacing: normal;
+    font-feature-settings: normal; /* 关闭可能影响字形间距的特殊 OpenType 设置 */
+}
+
+/* 针对 MathJax 生成的 SVG text，确保其保留空白（部分渲染器使用 svg text） */
+.MathJax text,
+.MathJax tspan,
+.MathJax use {
+    white-space: pre; /* 对 SVG text 元素生效，保留空格 */
+}
+
 /* Mermaid 流程图样式 */
 [id^=mermaidChart] .cluster rect {
     fill: var(--table-n2-bg-color) !important;
@@ -1177,36 +1198,30 @@ footer {
     content: "]";
 }
 
-/* 脚注内容样式 */
+/* 脚注内容样式（修复：避免大尺寸装饰与全局重置导致布局异常） */
 .md-hover-tip .code-tooltip-content {
-    display: flex; /* 使用 Flexbox 布局 */
-    align-items: center; /* 垂直居中 */
+    display: inline-block; /* inline-block 更适合作为悬浮提示 */
     color: var(--text-color);
-    text-align: center; /* 确保文本内容居中 */
-    padding: 1rem;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-    font-size: 130%;
+    text-align: left; /* 提示内容左对齐，避免占用整行 */
+    padding: 0.5rem 0.75rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    font-size: 0.95rem; /* 合理的字号，避免过大 */
+    max-width: 50ch; /* 限制宽度，防止撑破布局 */
+    line-height: 1.45;
+    border-radius: 4px;
+    word-break: break-word;
 }
 
-.md-hover-tip * {
-    margin: 0; /* 移除可能影响居中的外边距 */
-    padding: 0; /* 移除可能影响居中的内边距 */
+/* 仅清除提示内容中元素的外边距，保留内边距以确保可读性 */
+.md-hover-tip .code-tooltip-content * {
+    margin: 0;
 }
 
-.md-hover-tip .code-tooltip-content:before {
-    content: "『"; /* 在前插入“#” */
-    color: #273849; /* 设置颜色 */
-    margin-right: 0.5rem; /* 添加右边距 */
-    font-size: 2rem;
-    display: inline-block; /* 确保伪元素是行内块级元素 */
-}
-
+/* 移除先前用于装饰的巨大引号伪元素，避免破坏布局 */
+.md-hover-tip .code-tooltip-content:before,
 .md-hover-tip .code-tooltip-content:after {
-    content: "』"; /* 在前插入“#” */
-    color: #273849; /* 设置颜色 */
-    margin-left: 0.5rem; /* 添加右边距 */
-    font-size: 2rem;
-    display: inline-block; /* 确保伪元素是行内块级元素 */
+    content: none;
+    display: none;
 }
 
 
@@ -1251,8 +1266,8 @@ div.code-tooltip-content {
 }
 
 .md-def-name:after {
-    content: ". ^";
-    color: var(--text-color);
+    /* 移除冗余符号，保持定义名后无额外字符 */
+    content: "";
 }
 
 .md-def-footnote .md-def-name:before {
