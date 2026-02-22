@@ -5,4 +5,42 @@
     --color-font: #333333;
     --color-button-background: #2d6bdc;
     --color-button-onclicked-background: #1e54b6;
+    --color-typora-sidebar-background: #fafafa;
+    --color-typora-button-background: #febcd3;
+    --color-typora-border: #fd70a1;
+
+
+}
+
+/* 隐藏顶部工具条 */
+/* .editor-toolbar.-scrollable,
+[class~="editor-toolbar"][class~="-scrollable"],
+[class*="editor-toolbar"][class*="scrollable"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+} */
+
+
+.note-title-wrapper {
+    height: 25px;
+    min-height: 25px;
+    max-height: 25px;
+    line-height: 25px;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.editor-status-bar {
+    height: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    line-height: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    box-sizing: border-box;
 }

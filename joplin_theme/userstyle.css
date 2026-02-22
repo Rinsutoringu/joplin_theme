@@ -41,6 +41,10 @@
   background-color: var(--bg-color);
 }
 
+.cm-editor .cm-blockQuote {
+  opacity: 1 !important;
+}
+
 /* ========================= */
 /* 文本样式 */
 /* ========================= */
