@@ -177,7 +177,7 @@ body > *:last-child {
 @media screen {
     #write img {
         display: block;
-        max-width: 100%;
+        max-width: min(100%, 800px); /* 限制最大宽度为800px，避免大窗口时图片过大 */
         height: auto;
         float: left;
         margin: 0 1rem 1rem 0;
@@ -212,14 +212,14 @@ img {
 
 /* 行内数学公式 */
 #write .MathJax {
-    font-size: 120% !important;
+    font-size: 110% !important;
     color: var(--code-block-color);
-    border-radius: 3px;
-    padding: 0.2rem 0.4rem;
+    /* border-radius: 3px; */
+    padding: 0.1rem 0.1rem;
     display: inline-block;
-    border: 1px solid #dcdcdc;
-    margin-left: 5px;
-    margin-right: 5px;
+    /* border: 1px solid #dcdcdc; */
+    margin-left: 1px;
+    margin-right: 1px;
 }
 .MathJax text, .MathJax use {
     font-family: var(--latex-font);
@@ -1541,34 +1541,3 @@ a.ty-link {
     font-weight: normal;
 }
 
-/* 隐藏特定文件 */
-.file-list-item[data-path$="log.txt"],
-.file-list-item[data-path$="log-clipper.txt"],
-.file-list-item[data-path*="deletion_log_"],
-.file-list-item[data-path$="index.js.LICENSE.txt"] {
-    display: var(--file-hide-display); /* 使用变量控制显示/隐藏 */
-}
-
-/* 针对文件名以 edit- 开头的文件 */
-.file-list-item[data-path*="edit-"] {
-    display: var(--file-summary-display); /* 使用变量控制显示/隐藏 */
-}
-
-/* 隐藏所有子元素 */
-.file-list-item[data-path*="edit-"] > * {
-    display: var(--file-hide-display); /* 使用变量控制显示/隐藏 */
-}
-
-/* 显示文件摘要内容 */
-.file-list-item[data-path*="edit-"] .file-list-item-summary {
-    display: var(--file-summary-display); /* 使用变量控制显示/隐藏 */
-    white-space: pre-wrap; /* 保留换行和回车 */
-    margin: 0.5rem 0; /* 添加段落间距 */
-}
-
-/* 第一行以段落标题方式显示 */
-.file-list-item[data-path*="edit-"] .file-list-item-summary::first-line {
-    font-size: 1.0rem; /* 设置标题大小 */
-    font-weight: bold; /* 加粗显示 */
-    color: #333; /* 设置标题颜色 */
-}
